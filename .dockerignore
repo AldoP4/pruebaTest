@@ -1,0 +1,17 @@
+# Entorno virtual y cachés locales (se regeneran dentro de la imagen)
+venv/
+.hf_cache/
+chroma_db/
+
+# Artefactos de Python
+__pycache__/
+*.py[cod]
+
+# Control de versiones y metadatos
+.git/
+.gitignore
+
+# Archivos de entorno / docs (no necesarios para ejecutar)
+.env
+prompt_log.md
+README.md

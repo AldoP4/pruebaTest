@@ -1,0 +1,21 @@
+services:
+  rag:
+    build: .
+    image: rag-employee-handbook
+    container_name: rag-employee-handbook
+    # tty/stdin para que 'docker compose exec' sea cómodo e interactivo.
+    stdin_open: true
+    tty: true
+    volumes:
+      # Índice de Chroma en un volumen NOMBRADO y persistente: la ingesta se
+      # ejecuta una sola vez (primer arranque) y el índice sobrevive a
+      # reinicios y recreaciones del contenedor.
+      - chroma_db:/app/chroma_db
+      # --- Opcional (desarrollo): montar código y datos para iterar sin
+      # reconstruir la imagen. Si cambias el PDF, borra el volumen para
+      # re-ingestar:  docker compose down -v
+      # - ./src:/app/src
+      # - ./data:/app/data
+
+volumes:
+  chroma_db:

@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Entornos y secretos
+.env
+venv/
+
+# Base de datos vectorial
+chroma_db/
+
+# Caché de modelos de HuggingFace
+.hf_cache/
